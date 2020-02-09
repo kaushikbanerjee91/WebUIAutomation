@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="com.webautomation.tests">
+<test name="sample">
+	<classes>
+		<class name="com.webautomation.tests.CustomerServiceTest"></class>
+		<class name="com.webautomation.tests.HomePageTest"></class>
+	</classes>
+</test>
+</suite>

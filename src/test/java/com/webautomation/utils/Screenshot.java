@@ -16,7 +16,7 @@ import org.testng.ITestResult;
 
 public class Screenshot extends BaseClass{
 
-	public static void takeScreenshot(String path,Method name){
+	public static void takeScreenshot(String path,String name){
 		DateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd_hh_mm_a");
 		Date date = new Date();
 		String date_time = dateFormat.format(date);
@@ -40,7 +40,7 @@ public class Screenshot extends BaseClass{
 		}
 	}
 	
-	public static void takeScreenshotOnException(ITestResult result,String path,Method name){
+	public static void takeScreenshotOnException(ITestResult result,String path,String name){
 		if(result.getStatus() == ITestResult.FAILURE){
 			if(driver!=null){
 				takeScreenshot(path,name);

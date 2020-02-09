@@ -4,19 +4,37 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
+import com.webautomation.utils.Log;
+
 /*
  * @author Kaushik Banerjee
  */
 
 public class GetPage extends BaseClass {
+	
+	private final String REPLACEMENT_VALUE="{$replace}";
 
 	public WebElement element(String locator,Locator type){
 		WebElement ele=null;
 		try{
 			ele=driver.findElement(findLocator(locator,type));
+			Log.info("Action performed on "+ele);
 		}catch(NoSuchElementException e){
 			e.printStackTrace();
-			System.out.println("Element is not present on page");
+			Log.info("Element is not present on page");
+		}
+		return ele;
+	}
+	
+	public WebElement element(String locator,Locator type,String replacement){
+		WebElement ele=null;
+		String replacedLocator=locator.replace(REPLACEMENT_VALUE, replacement);
+		try{
+			ele=driver.findElement(findLocator(replacedLocator,type));
+			Log.info("Action performed on "+ele);
+		}catch(NoSuchElementException e){
+			e.printStackTrace();
+			Log.info("Element is not present on page");
 		}
 		return ele;
 	}

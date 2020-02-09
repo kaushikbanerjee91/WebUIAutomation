@@ -2,13 +2,16 @@ package com.webautomation.tests;
 
 import org.testng.annotations.Test;
 import com.webautomation.base.BaseClass;
-import com.webautomation.utils.Log;
 
 public class HomePageTest extends BaseClass{
 	
 	@Test
 	public void verifyHeaderLogo(){
 		homepage.verifyHeaderLogo();
-		Log.info("User verified header logo");
+	}
+	
+	@Test
+	public void verifyAllHeaders(){
+		homepage.verifyPrimaryHeaders();
 	}
 }
