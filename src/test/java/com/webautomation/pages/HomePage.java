@@ -13,7 +13,6 @@ import com.webautomation.utils.PropFileHandler;
  */
 
 public class HomePage extends GetPage{
-
 	public WebDriver driver;
 	ResourceBundle rb;
 

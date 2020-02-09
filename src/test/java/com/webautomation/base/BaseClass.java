@@ -2,17 +2,18 @@ package com.webautomation.base;
 
 import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
+import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import com.webautomation.pages.HomePage;
+import com.webautomation.utils.Log;
 import com.webautomation.utils.PropFileHandler;
 import com.webautomation.utils.Screenshot;
 
@@ -38,9 +39,9 @@ public class BaseClass {
 	
 	@BeforeMethod
 	public void getMethodName(Method name){
-		System.out.println("************************************************");
-		System.out.println(name.getName());
-		System.out.println("************************************************");
+		Reporter.log("************************************************");
+		Reporter.log(name.getName());
+		Reporter.log("************************************************");
 	}
 	
 	@AfterMethod
@@ -49,7 +50,7 @@ public class BaseClass {
 		driver.quit();
 	}
 	
-	public void setDriverConfig(){
+	public static void setDriverConfig(){
 		if(PropFileHandler.getConfigProperty("browserName").equalsIgnoreCase("chrome")){
 			WebDriverManager.chromedriver().setup();
 			driver= new ChromeDriver();
